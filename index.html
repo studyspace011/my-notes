@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Economics & Arts Study Notes Portal</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1e3a8a">
+</head>
+<body class="dashboard-body">
+
+  <header class="dashboard-header">
+    <div class="header-brand">
+      <h1 id="app-title">Department of Economics</h1>
+      <p id="app-subtitle">Semester 4 • Course Materials & Notes</p>
+    </div>
+    <div class="header-controls">
+      <button id="install-pwa-btn" class="btn-icon-text primary">
+        📥 Install App
+      </button>
+      <button id="theme-toggle-btn" class="btn-icon-text" title="Toggle Theme"></button>
+    </div>
+  </header>
+
+  <main class="dashboard-container">
+
+    <!-- Starred Subjects Section -->
+    <section id="starred-section" style="display: none; margin-bottom: 2rem;">
+      <div class="section-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="color:var(--accent-gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Starred / Quick Access
+      </div>
+      <div class="subject-grid" id="starred-grid"></div>
+    </section>
+
+    <!-- Main Subjects -->
+    <section>
+      <div class="section-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Semester 4 Subjects
+      </div>
+      <div class="subject-grid" id="main-subjects-grid"></div>
+    </section>
+
+  </main>
+
+  <script src="config.js"></script>
+  <script src="theme.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').catch(err => console.error(err));
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("app-title").innerText = CONFIG.appName;
+      document.getElementById("app-subtitle").innerText = `${CONFIG.course} • ${CONFIG.semester}`;
+
+      const mainGrid = document.getElementById("main-subjects-grid");
+      const starredGrid = document.getElementById("starred-grid");
+      const starredSection = document.getElementById("starred-section");
+
+      const starredList = JSON.parse(localStorage.getItem("econ_starred") || "[]");
+
+      mainGrid.innerHTML = "";
+      starredGrid.innerHTML = "";
+      let hasStarred = false;
+
+      CONFIG.subjects.forEach(sub => {
+        const pct = localStorage.getItem(`econ_scroll_pct_${sub.id}`) || 0;
+        const roundPct = Math.round(parseFloat(pct));
+        const isStarred = starredList.includes(sub.id);
+
+        const card = document.createElement("div");
+        card.className = "subject-card";
+        card.innerHTML = `
+          <div>
+            <div class="card-top">
+              <span class="card-badge">${sub.badge}</span>
+            </div>
+            <h3 class="card-title">${sub.title}</h3>
+            <p class="card-desc">${sub.description}</p>
+          </div>
+          <div>
+            ${roundPct > 0 ? `
+              <div class="card-progress-container">
+                <div class="progress-track"><div class="progress-fill" style="width:${roundPct}%"></div></div>
+                <div class="progress-label"><span>Reading Progress</span><span>${roundPct}%</span></div>
+              </div>` : ''}
+            <div class="card-actions">
+              <a href="${sub.path}" class="btn-open">Open Notes</a>
+            </div>
+          </div>
+        `;
+
+        mainGrid.appendChild(card);
+
+        if (isStarred) {
+          hasStarred = true;
+          const starCard = card.cloneNode(true);
+          starredGrid.appendChild(starCard);
+        }
+      });
+
+      starredSection.style.display = hasStarred ? "block" : "none";
+    });
+
+    let deferredPrompt;
+    const installBtn = document.getElementById("install-pwa-btn");
+    
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if(installBtn) installBtn.style.display = "inline-flex";
+    });
+
+    if(installBtn) {
+      installBtn.addEventListener("click", async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt = null;
+          installBtn.style.display = "none";
+        } else {
+          alert("PWA Installation is ready or already installed in browser!");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
