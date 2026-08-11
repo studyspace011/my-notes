@@ -33,8 +33,8 @@ const CONFIG = {
     },
     {
       id: "mic-4",
-      title: "MIC-4: Indian Economy",
-      description: "Structural Transformation, Agriculture, Industry & Policy Frameworks.",
+      title: "MIC-4: History",
+      description: "13वीं शताब्दी से 1789 तक यूरोप का इतिहास",
       path: "subjects/mic-4/mic-4.html",
       badge: "Minor"
     },
