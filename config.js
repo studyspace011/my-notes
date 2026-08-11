@@ -4,6 +4,13 @@ const CONFIG = {
   course: "Economics & Arts Notes Portal",
   subjects: [
     {
+      id: "mjc-4",
+      title: "MJC-4: Statics",
+      description: "अर्थशास्त्र में सांख्यिकीय विधियाँ",
+      path: "subjects/mjc-4/mjc-4.html",
+      badge: "Statics"
+    },
+    {
       id: "mjc-5",
       title: "MJC-5: Microeconomics - II",
       description: "General Equilibrium, Welfare Economics, Market Structure & Imperfect Competition.",
