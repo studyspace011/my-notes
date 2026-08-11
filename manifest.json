@@ -1,8 +1,9 @@
 {
   "name": "Economics Study Notes Portal",
   "short_name": "EcoNotes",
-  "description": "Offline-first Economics study portal with auto short-notes, annotations, and search.",
-  "start_url": "/index.html",
+  "description": "Offline-first Economics study portal with short notes, highlights, and search.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#fbf9f5",
   "theme_color": "#1e3a8a",
@@ -10,12 +11,16 @@
     {
       "src": "icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ]
+  ],
+  "display_override": ["standalone", "fullscreen"],
+  "orientation": "portrait"
 }
