@@ -33,9 +33,9 @@ const CONFIG = {
     },
     {
       id: "aec",
-      title: "AEC: Environmental Studies",
-      description: "Sustainable Development, Ecological Economics & Environmental Policy.",
-      path: "subjects/aec/aec.html",
+      title: "AEC: NCC",
+      description: "Social Service/Scout & Guide/Sports.",
+      path: "subjects/aec-4/aec-4.html",
       badge: "Ability Course"
     }
   ]
