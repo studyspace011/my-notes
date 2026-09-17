@@ -4,10 +4,10 @@ const CONFIG = {
   course: "Economics & Arts Notes Portal",
   subjects: [
     {
-      id: "mjc-5",
-      title: "MJC-5: Microeconomics - II",
-      description: "General Equilibrium, Welfare Economics, Market Structure & Imperfect Competition.",
-      path: "subjects/mjc-5/mjc-5.html",
+      id: "mjc-8",
+      title: "MJC-8: Intermediate Microeconomics - II",
+      description: "Monopolistic Competition, Alternative Pricing Approaches, MDistribution Theory (Pricing of Factors).",
+      path: "subjects/mjc-8/mjc-8.html",
       badge: "Core Economics"
     },
     {
