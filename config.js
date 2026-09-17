@@ -1,7 +1,7 @@
 const CONFIG = {
   appName: "Department of Economics",
-  semester: "Semester 4",
-  course: "Economics & Arts Notes Portal",
+  semester: "Semester 5",
+  course: "Economics Notes",
   subjects: [
     {
       id: "mjc-8",
