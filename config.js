@@ -8,35 +8,28 @@ const CONFIG = {
       title: "MJC-8: Intermediate Microeconomics - II",
       description: "Monopolistic Competition, Alternative Pricing Approaches, MDistribution Theory (Pricing of Factors).",
       path: "subjects/mjc-8/mjc-8.html",
-      badge: "Core Economics"
+      badge: "MJC"
     },
     {
-      id: "mjc-6",
-      title: "MJC-6: Macroeconomics - II",
-      description: "IS-LM Model, Open Economy Macroeconomics, Inflation & Business Cycles.",
-      path: "subjects/mjc-6/mjc-6.html",
-      badge: "Core Economics"
+      id: "mjc-9",
+      title: "MJC 9: PUBLIC FINANCE",
+      description: "N/A",
+      path: "subjects/mjc-9/mjc-9.html",
+      badge: "MJC"
     },
     {
-      id: "mjc-7",
-      title: "MJC-7: Basic Econometrics",
-      description: "Statistical Inference, OLS Regression, Heteroskedasticity & Multicollinearity.",
-      path: "subjects/mjc-7/mjc-7.html",
-      badge: "Quantitative"
+      id: "mic-5",
+      title: "MIC-5: History of India; From 550 C.E. to 1200 C.E",
+      description: "N/A",
+      path: "subjects/mic-5/mic-5.html",
+      badge: "MIC"
     },
     {
-      id: "mic-4",
-      title: "MIC-4: History",
-      description: "13वीं शताब्दी से 1789 तक यूरोप का इतिहास",
-      path: "subjects/mic-4/mic-4.html",
-      badge: "Minor"
-    },
-    {
-      id: "aec",
-      title: "AEC: NCC",
-      description: "Social Service/Scout & Guide/Sports.",
-      path: "subjects/aec-4/aec-4.html",
-      badge: "Ability Course"
+      id: "mic-6",
+      title: "MIC-6: History of Europe- 1789-1919",
+      description: "N/A",
+      path: "subjects/mic-6/mic-6.html",
+      badge: "MIC"
     }
   ]
 };
